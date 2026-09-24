@@ -429,3 +429,26 @@ WHERE id = 3;
 -- id | name         | is_available
 -- ---+--------------+--------------
 -- 3  | French Fries | t
+
+
+-- Example 22 — Update Multiple Rows Matching a Condition
+-- GOAL: Upgrade all customers with standard membership created before September 2026 to 'Silver'.
+-- Update multiple rows matching date criteria
+UPDATE customers
+SET membership_level = 'Silver'
+WHERE membership_level = 'Standard'
+  AND created_at < '2026-09-01';
+
+-- Verify updated records
+SELECT id, name, membership_level, created_at
+FROM customers
+WHERE membership_level = 'Silver';
+
+-- Command Result:
+-- UPDATE 2
+
+-- Verification Query Result:
+-- id | name         | membership_level | created_at
+-- ---+--------------+------------------+------------
+-- 2  | Bob Santos   | Silver           | 2026-02-01
+-- 3  | Charlie Cruz | Silver           | 2026-03-10
