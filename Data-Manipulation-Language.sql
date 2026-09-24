@@ -452,3 +452,24 @@ WHERE membership_level = 'Silver';
 -- ---+--------------+------------------+------------
 -- 2  | Bob Santos   | Silver           | 2026-02-01
 -- 3  | Charlie Cruz | Silver           | 2026-03-10
+
+
+-- Example 23 — Update using Comparison Operators (<, >, <=, >=)
+-- GOAL: Mark all products with 0 stock as unavailable (is_available = false).
+-- Update availability based on stock comparison
+UPDATE products
+SET is_available = false
+WHERE stock_quantity <= 0;
+
+-- Verify updated products
+SELECT id, name, stock_quantity, is_available
+FROM products
+WHERE is_available = false;
+
+-- Command Result:
+-- UPDATE 1
+
+-- Verification Query Result:
+-- id | name         | stock_quantity | is_available
+-- ---+--------------+----------------+--------------
+-- 8  | Seasonal Pie |              0 | f
