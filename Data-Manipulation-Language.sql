@@ -182,3 +182,23 @@ WHERE id = 5;
 -- id | customer_id | total_amount | status
 -- ---+-------------+--------------+---------
 -- 5  |           2 |         NULL | Pending
+
+
+-- Example 10 — Insert Records using the DEFAULT Keyword
+-- GOAL: Insert a customer relying on column default values by explicitly passing the DEFAULT keyword.
+-- Insert using DEFAULT keyword for membership and date
+INSERT INTO customers (name, email, membership_level, created_at)
+VALUES ('George Clark', 'george@example.com', DEFAULT, DEFAULT);
+
+-- Verify inserted data
+SELECT id, name, membership_level, created_at
+FROM customers
+WHERE email = 'george@example.com';
+
+-- Command Result:
+-- INSERT 0 1
+
+-- Verification Query Result:
+-- id | name         | membership_level | created_at
+-- ---+--------------+------------------+------------
+-- 7  | George Clark | Standard         | 2026-09-22
