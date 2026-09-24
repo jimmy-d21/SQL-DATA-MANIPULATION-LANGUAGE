@@ -323,3 +323,25 @@ WHERE id = 1;
 -- id | name           | price
 -- ---+----------------+--------
 -- 1  | Smashed Burger | 195.00
+
+
+-- Example 17 — Update Multiple Columns for One Row
+-- GOAL: Update both the price and stock_quantity of a product in a single operation.
+-- Update price and stock quantity simultaneously
+UPDATE products
+SET price = 130.00,
+    stock_quantity = 120
+WHERE id = 2;
+
+-- Verify changes
+SELECT id, name, price, stock_quantity
+FROM products
+WHERE id = 2;
+
+-- Command Result:
+-- UPDATE 1
+
+-- Verification Query Result:
+-- id | name       | price  | stock_quantity
+-- ---+------------+--------+----------------
+-- 2  | Iced Latte | 130.00 |            120
