@@ -122,3 +122,23 @@ WHERE name = 'Double Cheeseburger';
 -- name                | price  | stock_quantity
 -- --------------------+--------+----------------
 -- Double Cheeseburger | 220.50 |             25
+
+
+-- Example 7 — Insert Date Values
+-- GOAL: Insert an order record with an explicit date format (YYYY-MM-DD).
+-- Insert order with explicit date format
+INSERT INTO orders (customer_id, order_date, total_amount, status)
+VALUES (3, '2026-09-21', 195.00, 'Completed');
+
+-- Verify inserted data
+SELECT id, customer_id, order_date, total_amount, status
+FROM orders
+WHERE id = 4;
+
+-- Command Result:
+-- INSERT 0 1
+
+-- Verification Query Result:
+-- id | customer_id | order_date | total_amount | status
+-- ---+-------------+------------+--------------+-----------
+-- 4  |           3 | 2026-09-21 |       195.00 | Completed
