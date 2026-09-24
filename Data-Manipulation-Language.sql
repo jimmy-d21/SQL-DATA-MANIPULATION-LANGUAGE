@@ -202,3 +202,23 @@ WHERE email = 'george@example.com';
 -- id | name         | membership_level | created_at
 -- ---+--------------+------------------+------------
 -- 7  | George Clark | Standard         | 2026-09-22
+
+
+-- Example 11 — Insert using DEFAULT VALUES Clause
+-- GOAL: Insert a customer row using default values for all columns except auto-generated ones, where applicable.
+-- Insert a row where all columns accept DEFAULT values
+INSERT INTO customers (name, email)
+VALUES ('Hannah Abbott', 'hannah@example.com');
+
+-- Verify default values inserted
+SELECT name, membership_level, created_at
+FROM customers
+WHERE email = 'hannah@example.com';
+
+-- Command Result:
+-- INSERT 0 1
+
+-- Verification Query Result:
+-- name          | membership_level | created_at
+-- --------------+------------------+------------
+-- Hannah Abbott | Standard         | 2026-09-22
