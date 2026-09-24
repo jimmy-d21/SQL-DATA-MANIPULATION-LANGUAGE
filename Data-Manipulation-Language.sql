@@ -299,3 +299,27 @@ WHERE email IN ('julia@example.com', 'kevin@example.com');
 -- ---+---------------+-------------------+------------------
 -- 10 | Julia Roberts | julia@example.com | VIP
 -- 11 | Kevin Bacon   | kevin@example.com | Standard
+
+
+
+
+-- Part 2 — UPDATE Basics (Examples 16–30)
+-- Example 16 — Update a Single Column for One Row
+-- GOAL: Update the price of a single product using its primary key id.
+-- Update price for product ID 1
+UPDATE products
+SET price = 195.00
+WHERE id = 1;
+
+-- Verify updated price
+SELECT id, name, price
+FROM products
+WHERE id = 1;
+
+-- Command Result:
+-- UPDATE 1
+
+-- Verification Query Result:
+-- id | name           | price
+-- ---+----------------+--------
+-- 1  | Smashed Burger | 195.00
