@@ -473,3 +473,25 @@ WHERE is_available = false;
 -- id | name         | stock_quantity | is_available
 -- ---+--------------+----------------+--------------
 -- 8  | Seasonal Pie |              0 | f
+
+
+-- Example 24 — Update using AND Condition
+-- GOAL: Update order status to 'Processing' only if the status is 'Pending' AND total amount is greater than 100.00.
+-- Update using compound AND filter
+UPDATE orders
+SET status = 'Processing'
+WHERE status = 'Pending'
+  AND total_amount > 100.00;
+
+-- Verify status change
+SELECT id, total_amount, status
+FROM orders
+WHERE status = 'Processing';
+
+-- Command Result:
+-- UPDATE 1
+
+-- Verification Query Result:
+-- id | total_amount | status
+-- ---+--------------+------------
+-- 2  |       120.00 | Processing
