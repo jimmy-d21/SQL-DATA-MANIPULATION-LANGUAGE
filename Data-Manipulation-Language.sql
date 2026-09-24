@@ -387,3 +387,24 @@ WHERE id = 1;
 -- id | name        | email
 -- ---+-------------+--------------------------
 -- 1  | Alice Reyes | alice_updated@example.com
+
+
+-- Example 20 — Update Date Column
+-- GOAL: Update the order_date of an existing order record.
+-- Update order date
+UPDATE orders
+SET order_date = '2026-09-22'
+WHERE id = 2;
+
+-- Verify update
+SELECT id, customer_id, order_date
+FROM orders
+WHERE id = 2;
+
+-- Command Result:
+-- UPDATE 1
+
+-- Verification Query Result:
+-- id | customer_id | order_date
+-- ---+-------------+------------
+-- 2  |           2 | 2026-09-22
