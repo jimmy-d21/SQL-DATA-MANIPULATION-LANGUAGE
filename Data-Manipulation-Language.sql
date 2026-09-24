@@ -102,3 +102,23 @@ WHERE email = 'fiona@example.com';
 -- id | name           | email
 -- ---+----------------+------------------
 -- 6  | Fiona O'Connor | fiona@example.com
+
+
+-- Example 6 — Insert Numeric Data Types (Decimals and Integers)
+-- GOAL: Insert a product record focusing on exact decimal values (NUMERIC) and integer values (INT).
+-- Insert explicit numeric data types
+INSERT INTO products (name, price, stock_quantity)
+VALUES ('Double Cheeseburger', 220.50, 25);
+
+-- Verify inserted data
+SELECT name, price, stock_quantity
+FROM products
+WHERE name = 'Double Cheeseburger';
+
+-- Command Result:
+-- INSERT 0 1
+
+-- Verification Query Result:
+-- name                | price  | stock_quantity
+-- --------------------+--------+----------------
+-- Double Cheeseburger | 220.50 |             25
