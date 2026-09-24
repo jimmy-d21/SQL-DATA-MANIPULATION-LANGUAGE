@@ -242,3 +242,23 @@ WHERE id = 100;
 -- id  | name               | price
 -- ----+--------------------+--------
 -- 100 | Special Combo Meal | 350.00
+
+
+-- Example 13 — Insert While Omitting Multiple Optional Columns
+-- GOAL: Insert a new order specifying only required foreign keys, leaving all optional/default columns unassigned.
+-- Insert minimal order record
+INSERT INTO orders (customer_id)
+VALUES (1);
+
+-- Verify inserted data
+SELECT id, customer_id, order_date, total_amount, status
+FROM orders
+WHERE id = 6;
+
+-- Command Result:
+-- INSERT 0 1
+
+-- Verification Query Result:
+-- id | customer_id | order_date | total_amount | status
+-- ---+-------------+------------+--------------+---------
+-- 6  |           1 | 2026-09-22 |         NULL | Pending
