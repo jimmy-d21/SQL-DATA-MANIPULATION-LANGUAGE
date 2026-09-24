@@ -366,3 +366,24 @@ WHERE id = 3;
 -- id | name         | stock_quantity
 -- ---+--------------+----------------
 -- 3  | French Fries |             15
+
+
+-- Example 19 — Update Text Values Using String Filtering
+-- GOAL: Update a customer's email address by finding them via their current email address.
+-- Update customer email address
+UPDATE customers
+SET email = 'alice_updated@example.com'
+WHERE email = 'alice@example.com';
+
+-- Verify update
+SELECT id, name, email
+FROM customers
+WHERE id = 1;
+
+-- Command Result:
+-- UPDATE 1
+
+-- Verification Query Result:
+-- id | name        | email
+-- ---+-------------+--------------------------
+-- 1  | Alice Reyes | alice_updated@example.com
