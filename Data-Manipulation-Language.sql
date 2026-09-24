@@ -408,3 +408,24 @@ WHERE id = 2;
 -- id | customer_id | order_date
 -- ---+-------------+------------
 -- 2  |           2 | 2026-09-22
+
+
+-- Example 21 — Update Boolean Column
+-- GOAL: Set is_available to true for a product whose stock has been replenished.
+-- Mark product as available
+UPDATE products
+SET is_available = true
+WHERE id = 3;
+
+-- Verify boolean update
+SELECT id, name, is_available
+FROM products
+WHERE id = 3;
+
+-- Command Result:
+-- UPDATE 1
+
+-- Verification Query Result:
+-- id | name         | is_available
+-- ---+--------------+--------------
+-- 3  | French Fries | t
