@@ -162,3 +162,23 @@ WHERE name = 'Seasonal Pie';
 -- name         | price | is_available
 -- -------------+-------+--------------
 -- Seasonal Pie | 65.00 | f
+
+
+-- Example 9 — Insert Records with Explicit NULL Values
+-- GOAL: Insert an order record where the total_amount is unknown or not yet calculated (NULL).
+-- Insert order with NULL amount
+INSERT INTO orders (customer_id, order_date, total_amount, status)
+VALUES (2, '2026-09-22', NULL, 'Pending');
+
+-- Verify inserted data
+SELECT id, customer_id, total_amount, status
+FROM orders
+WHERE id = 5;
+
+-- Command Result:
+-- INSERT 0 1
+
+-- Verification Query Result:
+-- id | customer_id | total_amount | status
+-- ---+-------------+--------------+---------
+-- 5  |           2 |         NULL | Pending
