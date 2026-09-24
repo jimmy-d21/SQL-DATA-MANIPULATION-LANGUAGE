@@ -82,3 +82,23 @@ WHERE name = 'Choco Sundae';
 -- id | name         | price | stock_quantity | is_available
 -- ---+--------------+-------+----------------+--------------
 -- 7  | Choco Sundae | 50.00 |              0 | t
+
+
+-- Example 5 — Insert Text Values with Special Characters
+-- GOAL: Insert a customer whose name contains single quotes (apostrophes).
+-- Insert name containing an apostrophe
+INSERT INTO customers (name, email)
+VALUES ('Fiona O''Connor', 'fiona@example.com');
+
+-- Verify inserted data
+SELECT id, name, email
+FROM customers
+WHERE email = 'fiona@example.com';
+
+-- Command Result:
+-- INSERT 0 1
+
+-- Verification Query Result:
+-- id | name           | email
+-- ---+----------------+------------------
+-- 6  | Fiona O'Connor | fiona@example.com
