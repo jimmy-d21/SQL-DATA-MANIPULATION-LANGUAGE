@@ -142,3 +142,23 @@ WHERE id = 4;
 -- id | customer_id | order_date | total_amount | status
 -- ---+-------------+------------+--------------+-----------
 -- 4  |           3 | 2026-09-21 |       195.00 | Completed
+
+
+-- Example 8 — Insert Boolean Values
+-- GOAL: Insert a product record explicitly specifying a BOOLEAN field as false.
+-- Insert a product with explicit boolean false
+INSERT INTO products (name, price, stock_quantity, is_available)
+VALUES ('Seasonal Pie', 65.00, 0, false);
+
+-- Verify inserted data
+SELECT name, price, is_available
+FROM products
+WHERE name = 'Seasonal Pie';
+
+-- Command Result:
+-- INSERT 0 1
+
+-- Verification Query Result:
+-- name         | price | is_available
+-- -------------+-------+--------------
+-- Seasonal Pie | 65.00 | f
