@@ -222,3 +222,23 @@ WHERE email = 'hannah@example.com';
 -- name          | membership_level | created_at
 -- --------------+------------------+------------
 -- Hannah Abbott | Standard         | 2026-09-22
+
+
+-- Example 12 — Insert with Explicitly Specified Primary Key ID
+-- GOAL: Insert a record into products with an explicit primary key ID.
+-- Insert product with manual ID insertion
+INSERT INTO products (id, name, price, stock_quantity)
+VALUES (100, 'Special Combo Meal', 350.00, 10);
+
+-- Verify inserted data
+SELECT id, name, price
+FROM products
+WHERE id = 100;
+
+-- Command Result:
+-- INSERT 0 1
+
+-- Verification Query Result:
+-- id  | name               | price
+-- ----+--------------------+--------
+-- 100 | Special Combo Meal | 350.00
