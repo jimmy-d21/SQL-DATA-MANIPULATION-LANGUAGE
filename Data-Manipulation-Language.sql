@@ -495,3 +495,26 @@ WHERE status = 'Processing';
 -- id | total_amount | status
 -- ---+--------------+------------
 -- 2  |       120.00 | Processing
+
+
+-- Example 25 — Update using OR Condition
+-- GOAL: Set membership_level to 'VIP' for customers named 'Alice Reyes' or 'Diana Prince'.
+-- Update rows matching either condition
+UPDATE customers
+SET membership_level = 'VIP'
+WHERE name = 'Alice Reyes'
+   OR name = 'Diana Prince';
+
+-- Verify updated records
+SELECT id, name, membership_level
+FROM customers
+WHERE membership_level = 'VIP';
+
+-- Command Result:
+-- UPDATE 2
+
+-- Verification Query Result:
+-- id | name         | membership_level
+-- ---+--------------+------------------
+-- 1  | Alice Reyes  | VIP
+-- 4  | Diana Prince | VIP
