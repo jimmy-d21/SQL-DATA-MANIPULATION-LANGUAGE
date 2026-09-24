@@ -276,3 +276,26 @@ RETURNING id, name, email, created_at;
 -- ---+-------------+-----------------+------------
 -- 9  | Ian Malcolm | ian@example.com | 2026-09-22
 -- INSERT 0 1
+
+
+-- Example 15 — Insert Batch Records with Mixed Default and Specific Values
+-- GOAL: Insert multiple customer rows in one batch where some fields utilize explicit values and others use DEFAULT.
+-- Insert multiple customers with mixed defaults
+INSERT INTO customers (name, email, membership_level)
+VALUES 
+  ('Julia Roberts', 'julia@example.com', 'VIP'),
+  ('Kevin Bacon', 'kevin@example.com', DEFAULT);
+
+-- Verify inserted data
+SELECT id, name, email, membership_level
+FROM customers
+WHERE email IN ('julia@example.com', 'kevin@example.com');
+
+-- Command Result:
+-- INSERT 0 2
+
+-- Verification Query Result:
+-- id | name          | email             | membership_level
+-- ---+---------------+-------------------+------------------
+-- 10 | Julia Roberts | julia@example.com | VIP
+-- 11 | Kevin Bacon   | kevin@example.com | Standard
