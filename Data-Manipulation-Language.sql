@@ -345,3 +345,24 @@ WHERE id = 2;
 -- id | name       | price  | stock_quantity
 -- ---+------------+--------+----------------
 -- 2  | Iced Latte | 130.00 |            120
+
+
+-- Example 18 — Update Value Using Arithmetic Expression
+-- GOAL: Increase the price of all products by 10% based on their current value.
+-- Increase stock quantity by adding 15 units to product 3
+UPDATE products
+SET stock_quantity = stock_quantity + 15
+WHERE id = 3;
+
+-- Verify updated stock
+SELECT id, name, stock_quantity
+FROM products
+WHERE id = 3;
+
+-- Command Result:
+-- UPDATE 1
+
+-- Verification Query Result:
+-- id | name         | stock_quantity
+-- ---+--------------+----------------
+-- 3  | French Fries |             15
