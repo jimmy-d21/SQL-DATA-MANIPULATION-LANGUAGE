@@ -262,3 +262,17 @@ WHERE id = 6;
 -- id | customer_id | order_date | total_amount | status
 -- ---+-------------+------------+--------------+---------
 -- 6  |           1 | 2026-09-22 |         NULL | Pending
+
+
+-- Example 14 — Using RETURNING Clause to Verify Inserts Immediately
+-- GOAL: Insert a new customer and return the generated row immediately without running a separate SELECT statement.
+-- Insert customer and return generated fields immediately
+INSERT INTO customers (name, email)
+VALUES ('Ian Malcolm', 'ian@example.com')
+RETURNING id, name, email, created_at;
+
+-- Command Result & Output:
+-- id | name        | email           | created_at
+-- ---+-------------+-----------------+------------
+-- 9  | Ian Malcolm | ian@example.com | 2026-09-22
+-- INSERT 0 1
